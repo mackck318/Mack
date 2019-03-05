@@ -1,0 +1,183 @@
+class Cat :
+    def __init__(self):
+        self.type ="波斯猫"
+        self.name = None
+
+    def eat(self):
+        print("猫吃鱼")
+
+    def climb(self,meter):
+        print("猫会爬树，可以爬%d米。" % meter)
+
+    def __str__(self):
+        return "打印一只猫"
+
+cat1 = Cat()
+print(cat1)
+cat1.eat()
+cat1.climb(5)
+
+
+
+class Cat:
+    def __init__(self):
+        self.type = "波斯猫" \
+                    "英短" \
+                    "加菲猫"
+        self.name = None
+
+cat1 = Cat()
+print(cat1.type)
+cat1.name = "大帅"
+print(cat1.name)
+#增加定义变量
+cat1.cloth = "蓝色"
+print(cat1.cloth)
+print("----------")
+cat2 = Cat()
+print(cat1.name)
+
+
+
+class Human():
+    #魔术方法，会自动执行的方法 叫 魔术方法
+    def __init__(self,gender_str):    #self = X00001
+        self.gender = gender_str  #在对应的空间中创建变量
+        self.name = None
+#创建对象的几件事：
+#1.开空间：位置信息 X00001
+#2.自动调用init 方法 并默认传参 传给self参数
+#3.h1= 位置信息 h1 = x00001
+
+h1 = Human("男")
+h1.name = "小明"
+print(h1.gender)
+print(h1.name)
+h2 = Human("女")
+h2.name = "小红"
+print(h2.gender)
+print(h2.name)
+
+class Phone:
+    def __init__(self):
+        self.power = 100
+
+
+    def game(self):
+        if self.power >= 10:
+            print("正在打游戏，电量消耗10")
+            self.power -= 10
+        else:
+            print("请充电")
+
+    def music(self):
+        if self.music >= 5:
+            print("正在听歌，电量消耗5")
+            self.power -= 5
+        else:
+            print("请充电")
+
+    def call(self):
+        if self.call >= 4:
+            print("正在打电话，电量消耗4")
+            self.power -= 4
+        else:
+            print("请充电")
+
+    def answer(self):
+        if self.answer >= 3:
+            print("正在接电话，电量消耗3")
+            self.power -= 3
+        else:
+            print("请充电")
+
+    def charge(self, num):
+        if num <= 100 - self.power:
+            print("正在充电，充电量是%d" % num)
+            self.power += num
+        else:
+            print("你是XX嘛")
+
+    def __str__(self):
+        return "当前电量为%d" % self.power
+
+
+p = Phone()
+p.call()
+print(p)
+p.charge(4)
+print(p)
+p.game()
+print(p)
+p.call()
+p.answer()
+p.music()
+print(p)
+p.charge(22)
+print(p)
+
+
+# class Cat :
+#     def __init__(self,str_type,str_name):    #self = c ,str_type=波斯猫,str_name=汤姆
+#         self.type = str_type         # c.type =波斯猫
+#         self.name = str_name        #c.name=汤姆
+#
+#     def jump(self):    #self = c 谁用self 就是谁
+#         print("%s在跳" % self.name)
+#
+# c = Cat("波斯猫","汤姆")  #默认调用__init__,传递三个参数：c 波斯猫,汤姆
+# c.jump()  #过程 ： c.jump(c) 默认传参
+
+
+class A:
+    def show_1(self):
+        print("哈哈")
+
+    def show_2(self):  # self = a
+        self.show_1()
+        print("嘿嘿")
+
+
+a = A()
+
+a.show_2()  # 默认传参过程  a.show_2(a)
+#求2个数的和的三次方
+# def sum(a,b):
+#     result = a+b
+#     return result   #return 把数据发送到 函数调用位置
+# c=sum(4,6)#接受上面 return 后面的数据
+# print(c**3)
+
+#形参======》实参                             外 ===》内
+#return 数据======》变量=函数名（）            内部==>外部
+
+
+#求a加b的和的平均数
+#定义函数1先算加法
+#定义函数2算平均数
+#定义总函数 将1，2带入
+#得到结果返回打印
+#从哪进从哪出
+# def add(a,b) :
+#     return a + b
+# def div(a,b):
+#     return  a/b
+# def get (a,b) :
+#     c = add(a,b)
+#     d = div(c,2)
+#     return d
+# x =get(1000,2000)
+# print(x)
+
+
+
+#比较a,b,c大小
+def max(a,b):
+    if a > b:
+        return a
+    else :
+        return b
+
+max1 = max(3,4)  #通过函数得到2个数的最大值，然后拿着这个值和第三个数比较
+max2 = max(max1,2)
+print(max2)
