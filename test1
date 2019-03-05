@@ -1,0 +1,145 @@
+# list1 = [2,3,5,7,9]
+# print(list1[3])
+#
+# tuple1 = (2,3,5,7,9)
+# print(tuple1[2])
+
+# set1 = {4,6,8,9,2}
+# print(set1)
+
+#
+# num_list = [5,2,10,6]
+# result = num_list.index(10)
+# print(result)
+# num_list[2]=11
+# print(num_list)
+
+# num_list = [5,2,10,6]
+# num_list.append(20)
+# print(num_list)
+# num_list.insert(2,15)
+# print(num_list)
+# num_list.extend([4,5,6])
+# print(num_list)
+
+# num_list = [5,2,10,6]
+# result = num_list.pop(2)   # 删除指定索引位置的数
+# print(result)
+# print(num_list)
+
+# result = num_list.pop()   #默认删除列表最后一个
+# print(result)
+
+# num_list.remove(10)    #删除列表中指定的数
+# print(num_list)
+
+# num_list.clear()         #删除列表所有的数
+# print(num_list)
+
+
+#元组
+# # 取值:
+# # 1. 元组名[索引]
+# # 2. 元组.index()
+# num_tuple = (5,8,2,4)
+# v_index = num_tuple.index(5)
+# print(v_index)
+
+# # 3.count :列表也有
+# char_tuple = ("a","b","c","d","e","e","e","e","e","e")         #计算几个值
+# num_count = char_tuple.count("e")  # 统计谁 传谁
+# print(num_count)  # 返回 传入 数据的 个数
+
+
+
+# set1 = {1,3,2,4,5,6}
+# set1.add(7)
+# print(set1) # 默认追加 到末尾
+
+
+stu_info = {"name": "张三", "age": 18}
+print(stu_info.keys())
+print(stu_info.values())
+print(stu_info.items())
+for key in stu_info :
+    print(key)
+for values in stu_info.values() :
+    print(values)
+    
+    
+    
+    #定义一个水果类，然后通过水果类，创建苹果对象、橘子对象、西瓜对象并分别添加属性:颜色和价格
+class Fruits :
+    def __init__(self,color,price):
+        self.color = color
+        self.price = price
+
+apple=Fruits("红色",5)
+orange=Fruits("橙色",3)
+watermelon=Fruits("绿色",2)
+print(apple.color)
+print(orange.color)
+print(watermelon.color)
+print(apple.price)
+print(orange.price)
+print(watermelon.price)
+
+
+
+#定义一个电脑类,电脑有品牌,有价格,能放电影。
+# 分别创建2个对象"联想电脑" 和 "苹果电脑"。
+# 调用放电影的动作,
+# 联想电脑播放 电影"葫芦娃"，
+# 苹果电脑播放"黑猫警长"。
+
+class Computer :
+    def __init__(self,brand,price,movie):
+        self.brand = brand
+        self.price = price
+        self.movie = movie
+
+    def __str__(self):
+        return "%s播放电影%s" % (self.brand,self.movie)
+
+lenovo =Computer("联想电脑",8000,"葫芦娃")
+apple_computer = Computer("苹果电脑",15000,"黑猫警长")
+
+print(lenovo)
+print(apple_computer)
+
+
+
+# 1.定义一个Person类, 类中要有初始化方法, 方法中要有人的姓名和年龄属性
+#  2. 将类中的姓名是公有属性，年龄是私有属性.
+# 3. 提供获取私有属性的公有方法 get_age方法.
+# 4.提供可以设置私有属性的方法set_age方法，要求如果输入的年龄在0 - - 100之间，设置年龄，否则，提示输入不正确，
+#  5. 重写 __str__ 要求打印对象时，把 姓名和年龄都打印出来。
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.__age = age
+
+    def get__age(self):
+        return self.__age
+
+    def set__age(self, age):
+        if age >= 0 and age <= 100:
+            self.__age = age
+        else:
+            print("您输入不正确")
+
+    def __str__(self):
+        return "姓名是%s,年龄是%d" % (self.name, self.get__age())
+
+
+p1 = Person("小明", 26)
+# p1.set__age(26)
+print(p1)
+
+# 2.使用类属性、类方法、静态方法的知识实现以下功能：
+# 小明，小花，小刚，做游戏， 每个人都有一个分数(1 -- 100)，
+# 游戏开始前，显示，“游戏开始了，各位加油啊”
+# 游戏进行中打印每个人的游戏分数
+# 游戏结束后，打印最高分
+import random
