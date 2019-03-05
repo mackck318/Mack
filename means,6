@@ -1,0 +1,114 @@
+# 查询:取值 修改: 增加:  删除:
+# 取值:
+# 1. 列表名[索引]  按照索引取数据
+# num_list = [5,2,10,6]
+# print(num_list[3])
+# 2.列表名.index()
+# num_list = [5,2,10,6]
+# # 参数:一个整数
+# # 返回值:返回 传入数据 对应的索引
+# result = num_list.index(10)
+# print(result)  # 2
+# result = num_list.index(11)  # 报错:如果传入 列表中没有的 数据 就报错
+# print(result)
+# ******************************************************************************************
+# num_list = [5,2,10,6]
+# # 列表名[索引] = 新数据
+# # num_list[2] = 11  # 可以
+# num_list[5] = 16  # 如果没有这个索引 就报错 下标越界
+# ******************************************************************************************
+# 增加:
+# 1.append()
+# 参数:传入一个 数据
+# 返回值:无
+# 最终效果 查看数据源
+# num_list = [5,2,10,6]
+# num_list.append(20)
+# print(num_list)
+
+# 2.insert()
+# 参数:1.需要传入的位置  2.需要插入的数据
+# 返回值:无
+# 最终效果:查看数据源
+# num_list.insert(2,15)
+# print(num_list)  # 把原先位置 的 数据 往后移动
+
+# 3.extend()
+# 参数:传入一个数据,只要可以被 for 的 都可以
+# 最终效果:添加一堆的数据到末尾
+# num_list.extend([4,5,6])
+# print(num_list)
+# ********************************************************************************************************
+num_list = [5,2,10,6]
+# 1.pop
+# 参数:传入索引
+# 返回值:返回被删除的数据
+# 常用效果:看数据源 删除之后的数据
+# result = num_list.pop(3)   # 用到返回值的情况 不多
+# print(result)
+# print(num_list)   # 一般看数据源 是否有减少
+
+# 2.pop
+# 参数 无
+# 最终效果: 默认删除最后一个元素
+# result = num_list.pop()
+# print(result)
+# result = num_list.pop()
+# print(result)
+#
+# print(num_list)
+
+# 3.remove()
+# 参数:传入列表中的 已有数据
+# 返回值:无
+# 最终效果 :传谁 删谁
+# num_list.remove(10)
+# print(num_list)
+
+# 4.clear()
+num_list.clear()
+print(num_list)
+
+# 查询(取值)
+# 字典名[键]
+# 字典名.get(键)
+# stu_info = {"name": "张三", "age": 18}
+# # print(stu_info["name1"])
+# print(stu_info.get("name1"))  # 没有这个键,不报错,返回None
+# ************************************************************************************
+# 修改/增加
+# stu_info = {"name": "张三", "age": 18}
+# stu_info["name"] = "刘能"    # 键 存在 就修改值
+# print(stu_info)
+# stu_info["gender"] = "男"    # 键 不存在 就增加
+# print(stu_info)
+
+# 批量增加/修改
+
+# stu_info.update({"id_num": "46516579684", "phone_num": "13988886666"})
+# print(stu_info)
+# stu_info.update({"name": "赵四", "age": "60"})
+# print(stu_info)
+
+# ************************************************************************************
+# stu_info = {"name": "张三", "age": 18}
+# # pop()
+# # 传入存在键
+# # stu_info.pop("name")  # 传入那个键  就删除 对应的键值对
+# # print(stu_info)
+#
+# # 清空
+# stu_info.clear()
+# print(stu_info)
+
+
+list1 = [[1,2],[3,4],(5,6),{7,8},9]
+for a in list1 :
+    #如果是可迭代的东西，执行循环， 否则执行打印
+    if isinstance(a,list) or isinstance(a, tuple) or isinstance(a,set):
+        #取出的数据仍是列表，还需要循环
+        for data in a :
+            print(data)
+    else:
+        print(a)
+    print("-------------")
