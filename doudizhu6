@@ -1,0 +1,88 @@
+#买牌54张 ，洗牌 发牌
+#先做买牌
+import random
+class Game :
+
+    #逻辑 用四个花色和牌的点数 依次拼接
+    #定义花色元组
+    flowers = ("♠","♥","♣","♦")
+    #定义点数元组
+    nums = ("A","2","3","4","5","6","7","8","9","10","J","Q","K")
+    def __init__(self):
+        self.poke_list =[]
+        # 定义三个玩家列表
+        self.player1 = []
+        self.player2 = []
+        self.player3 = []
+
+
+    def buy_pokes(self):
+
+    #逻辑遍历取值  花色，做拼接数字的逻辑
+    #花色拼接的逻辑
+        for flower in Game.flowers :
+            for num in Game.nums :
+                self.poke_list.append(flower+num)
+
+        self.poke_list.append("小王")
+        self.poke_list.append("大王")
+
+        #return poke_list
+
+
+    #再做洗牌
+    def xi_pai(self):
+        random.shuffle(self.poke_list)
+
+    #发牌
+    def send_poke(self):
+        for i in range(17):
+            # 连发3张牌，a b c记录要发的牌
+            a =self.poke_list.pop()
+            self.player1.append(a)
+            b = self.poke_list.pop()
+            self.player2.append(b)
+            c = self.poke_list.pop()
+            self.player3.append(c)
+
+
+table1 = Game()
+table1.buy_pokes()
+table1.xi_pai()
+table1.send_poke()
+print(table1.player1)
+print(table1.player2)
+print(table1.player3)
+print(table1.poke_list)
+
+# buy_pokes()
+# xi_pai()
+# print(poke_list)
+
+#
+# #打乱顺序交换
+# import random
+# nums = ["a","b","c","d"]
+# # index = random.randint(0,3)
+# # nums [0],nums[index] = nums[index],nums [0]
+# # index = random.randint(0,3)
+# # nums [1],nums[index] = nums[index],nums [1]
+# # index = random.randint(0,3)
+# # nums [2],nums[index] = nums[index],nums [2]
+# # index = random.randint(0,3)
+# # nums [3],nums[index] = nums[index],nums [3]
+# # print(nums)
+#
+# for i in range (4):
+#     index = random.randint(0, 3)
+#     nums[i], nums[index] = nums[index], nums[i]
+# print(nums)
+# def xi_pai():
+#     for i in range (54):
+#         index = random.randint(0, 53)
+#         poke_list[i], poke_list[index] = poke_list[index], poke_list[i]
+#
+#
+# buy_pokes()
+# xi_pai()
+# print(poke_list)
