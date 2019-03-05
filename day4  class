@@ -181,3 +181,28 @@ def max(a,b):
 max1 = max(3,4)  #通过函数得到2个数的最大值，然后拿着这个值和第三个数比较
 max2 = max(max1,2)
 print(max2)
+
+
+ #面向对象的思路： 需求 ====>思考哪一类可以解决需求=====》在这一类拿一个对象来解决问题
+# class math :  #假设有一个解决的类
+#     pass
+# m1 = math()    #添加一个类的对象
+
+
+class Math:
+    def jia(self, a, b):
+        print(a + b)
+
+    def jian(self, a, b):
+        print(a - b)
+
+    def cheng(self, a, b):
+        print(a * b)
+
+    def chu(self, a, b):
+        print(a / b)
+
+
+m1 = Math()
+m1.cheng(2,6)
+
