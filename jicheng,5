@@ -1,0 +1,100 @@
+ #封装中的私有
+# #私有就是在变量前加两个“__”
+# #可以不能在代码区域外使用
+#
+# class Cat :
+#     def __init__(self):
+#         self.name = "小花"
+#         self.__type = "美短"
+#
+#     def func(self):
+#         print(self.__type)  #有__的可以在代码区域里面使用
+#                             #解释器把原先的名字改了 ======》self._Cat__type
+#
+# c =Cat()
+# print(c.name)
+# # print(c.__type)   #有__的不可以在代码区域外面使用
+# print(c._Cat__type)  # 可以打印 ,需要访问改名后的才可以打印
+# c.func()
+#
+# #钱的隐藏 曲线救国 增加一个def 可以在外使用， 用def在里面使用
+# class Money :
+#     def __init__(self):
+#         self.__count = 100
+#
+#     def set_count(self):
+#         set.__count = 50
+#
+
+#
+# #都是中国人所以，在类下面可以直接全部定义
+# class Chinese :
+#     country = "中国"
+#     def __init__(self,str_name,str_id_num):
+#         self.name = str_name
+#         self.id_num = str_id_num
+#
+# ch1 = Chinese("小明","420106123")
+# print(ch1.name)
+# print(ch1.id_num)
+# print(ch1.country)
+# ch2 =Chinese ("小红","420106124")
+# print(ch2.name)
+# print(ch2.id_num)
+# print(ch2.country)
+
+# 中国为所以人的国籍，所以可以全部定义进，使用@classmethod 可以定义类方法
+class Chinese :
+    country = "中国"
+    def __init__(self,str_name,str_id_num):
+        self.name = str_name
+        self.id_num = str_id_num
+
+    @classmethod
+    def show(cls):
+        print(cls.country)
+
+Chinese.show()
+
+
+
+
+ class A :
+#     def __init__(self):
+#         self.name = "张三"
+#         self.age = 18
+#         self.__money =100
+#
+# class B (A):
+#     def show(self):
+#         print(self.name)
+#         # print(self.__money)   #不行，私有的概念 只能在自己的类里面访问
+#
+# b = B()
+# print(b.name)
+# print(b.age)
+# # print(b.__money)    #不行，子类不能继承父类私有成员
+# b.show()
+#
+# a = A()
+# # a.show()  #父类对象不能使用 子类方法
+
+
+class A :
+    def show(self):
+        print("我是父类的方法")
+
+class B (A):
+    def show(self):
+        print("我是子类的方法")
+        A.show(self)
+        super().show()
+        super(B, self).show()
+
+b = B()
+b.show()
+
+
+
+
+
